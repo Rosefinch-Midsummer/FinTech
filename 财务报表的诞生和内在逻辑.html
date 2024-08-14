@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>财务报表的诞生和内在逻辑 - 財務金融</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="前言.html">前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="一本书读懂财报.html"><strong aria-hidden="true">1.</strong> 一本书读懂财报</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="资产负债表：企业的照相机.html"><strong aria-hidden="true">1.1.</strong> 资产负债表：企业的照相机</a></li><li class="chapter-item expanded "><a href="利润表：企业的摄像机.html"><strong aria-hidden="true">1.2.</strong> 利润表：企业的摄像机</a></li><li class="chapter-item expanded "><a href="财务报表的诞生和内在逻辑.html" class="active"><strong aria-hidden="true">1.3.</strong> 财务报表的诞生和内在逻辑</a></li><li class="chapter-item expanded "><a href="解剖现金流量表.html"><strong aria-hidden="true">1.4.</strong> 解剖现金流量表</a></li><li class="chapter-item expanded "><a href="活用三张报表，打通财务数据经脉.html"><strong aria-hidden="true">1.5.</strong> 活用三张报表，打通财务数据经脉</a></li><li class="chapter-item expanded "><a href="找出影响财务数据的因素.html"><strong aria-hidden="true">1.6.</strong> 找出影响财务数据的因素</a></li><li class="chapter-item expanded "><a href="怎样的公司才算是好公司？.html"><strong aria-hidden="true">1.7.</strong> 怎样的公司才算是好公司？</a></li><li class="chapter-item expanded "><a href="控制风险的要诀.html"><strong aria-hidden="true">1.8.</strong> 控制风险的要诀</a></li></ol></li><li class="chapter-item expanded "><a href="聪明的投资者.html"><strong aria-hidden="true">2.</strong> 聪明的投资者</a></li><li class="chapter-item expanded "><a href="证券分析.html"><strong aria-hidden="true">3.</strong> 证券分析</a></li><li class="chapter-item expanded "><a href="投资最重要的事.html"><strong aria-hidden="true">4.</strong> 投资最重要的事</a></li><li class="chapter-item expanded "><a href="小狗钱钱.html"><strong aria-hidden="true">5.</strong> 小狗钱钱</a></li><li class="chapter-item expanded "><a href="富爸爸穷爸爸系列.html"><strong aria-hidden="true">6.</strong> 富爸爸穷爸爸系列</a></li><li class="chapter-item expanded "><a href="巴比伦最富有的人.html"><strong aria-hidden="true">7.</strong> 巴比伦最富有的人</a></li><li class="chapter-item expanded affix "><li class="part-title">Online Courses</li><li class="chapter-item expanded "><a href="生活中的货币时间价值.html"><strong aria-hidden="true">8.</strong> JNU生活中的货币时间价值</a></li><li class="chapter-item expanded "><a href="财务分析与决策.html"><strong aria-hidden="true">9.</strong> THU财务分析与决策</a></li><li class="chapter-item expanded "><a href="财务报表分析.html"><strong aria-hidden="true">10.</strong> UIBE财务报表分析</a></li><li class="chapter-item expanded "><a href="管理会计学.html"><strong aria-hidden="true">11.</strong> SWUFE管理会计学</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">財務金融</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="财务报表的诞生和内在逻辑"><a class="header" href="#财务报表的诞生和内在逻辑">财务报表的诞生和内在逻辑</a></h1>
+<!-- toc -->  
+<h2 id="成立新公司要做的第一件事是什么"><a class="header" href="#成立新公司要做的第一件事是什么">成立新公司，要做的第一件事是什么？</a></h2>
+<p>搞明白了资产负债表和利润表，似乎到了要试着了解现金流量表的时候了。先不急，我们先得了解财务报表的产生和逻辑架构，建立一个初级的财务思维，到时候再了解现金流量表，便自然水到渠成。</p>
+<p>一家刚成立的公司在去年一整年共进行了 13 项经济活动（见表 3），这些经济活动会对这家公司的报表产生什么影响呢？了解了这些影响，我们也就知道财务报表是如何产生的了。</p>
+<p>这家企业从事的第一项经济活动，就是设立这家公司，为此，股东投入了 3200 万元，这也就是资产负债表上 “货币资金” 这个项目。既然这笔钱是股东投入的，股东投入这笔钱之后，自然就在公司开始享受权益，这笔钱也就被归入股东权益中的股本这一项，股本就因此而增加了 3200 万元。</p>
+<p>于是，神奇的事情发生了：在这家公司此时的资产负债表上，货币资金和股本的数字相等，而且它们根本就是记录了同一笔资金的动态。紧接着，我们发现，更神奇的事情发生了：哪怕真的只记录了一笔交易，这张资产负债表依然满足自身的最基本逻辑，<strong>即 “资产 = 负债 + 股东权益”</strong>。</p>
+<p>＞＞＞表 3 新设立公司的资产负债表　（单位：万元）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240814065014.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240814002012.png" alt="" /></p>
+<p>附：该新成立公司进行的 13 项经济活动</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240806212803.png" alt="" /></p>
+<ol>
+<li>
+<p>设立公司，股东投资 3200 万元现金。</p>
+</li>
+<li>
+<p>向银行借款 5100 万元，借款期限为 6 个月。</p>
+</li>
+<li>
+<p>购买生产设备、办公家具和车辆，建造办公楼、厂房，花费 5700 万元，以银行存款支付。</p>
+</li>
+<li>
+<p>获取一块土地的使用权，花费 150 万元。</p>
+</li>
+<li>
+<p>采购原材料花费 2400 万元，到 12 月 31 日为止支付 1600 万元现金，其余部分将在下一年度分期支付。</p>
+</li>
+<li>
+<p>生产出一批产品。产品成本为 3600 万元，其中使用的原材料价值为</p>
+</li>
+</ol>
+<p>2400 万元；发生了人工费和其他支出 1200 万元，以现金支付。</p>
+<ol start="7">
+<li>
+<p>销售产品 4300 万元，销售成本 3100 万元。到 12 月 31 日为止收到 3000 万元现金一，其余部分将在下年度内收到。</p>
+</li>
+<li>
+<p>为下一年采购原材料预付 150 万元。</p>
+</li>
+<li>
+<p>研发部门当期花费 50 万元成功地研制出一种低成本处理污染的技术。</p>
+</li>
+<li>
+<p>支付管理人员工资和行政开支 150 万元，支付销售人员工资和外地销售分公司开支 250 万元。</p>
+</li>
+<li>
+<p>支付银行利息 130 万元。</p>
+</li>
+<li>
+<p>支付所得税 100 万元。</p>
+</li>
+<li>
+<p>分配现金股利 100 万元。</p>
+</li>
+</ol>
+<p>之后，这家公司进行了开创以来的第二个交易 —— 它向银行贷款 5100 万元。显然，这家公司的货币资金将会因此增加 5100 万元，而这家公司的短期借款也会因此增加 5100 万元。因此，当这张资产负债表上出现三个项目之后，它依然满足 “资产 = 负债 + 股东权益” 的基本逻辑。</p>
+<p>在这两个交易活动进行完毕之后，这个公司的资金就全部到位了，接下来它便要购置固定资产了。所以这家公司的第三项经济活动便是，支出 5700 万元货币资金来购置厂房、设备以及办公家具。这家公司因此多了 5700 万元固定资产，但其资产总量却并没有发生变化，变化的只有资产结构。具体来说，就是 5700 万元的货币资金变成了 5700 万元固定资产。</p>
+<p>第四项经济活动是，花费 150 万元获得了一块土地的使用权。在中国，土地使用权属于无形资产，因此，在少了 150 万元货币资金的同时，这家公司获得了价值 150 万元的无形资产。这家公司的资产总量依旧没有发生任何变化，变化的只是资产结构，也就是 150 万元的货币资金变成了 150 万元的无形资产。</p>
+<p>到这个交易为止，所有的基础设施都已经建成了。接下来这个企业该干什么了呢？大家可以想象，它接下来就要投产了。那么投产之后，这个企业会有一些什么样的行为呢？</p>
+<h2 id="生产成本在哪里"><a class="header" href="#生产成本在哪里">生产成本在哪里？</a></h2>
+<p>目前，这家公司的资金已经到位，并且完成了自身的基础设施建设，接下来就要进行生产了。因此，这家公司的第五项经济活动是，采购原材料。</p>
+<p>它采购了价值 2400 万元的原材料，但却只支付了 1600 万元给它的供应商。这项经济活动会如何影响这家企业的财务报表呢？</p>
+<p>首先，这家企业多了 2400 万元的原材料，也就是多了 2400 万元的存货；同时，这家公司支付给供应商 1600 万元现金，所以货币资金会减少 1600 万元；另外，这家公司还欠供应商 800 万元，也就是说还有 800 万元的应付账款没有付出，这属于它的负债项目。</p>
+<p>这家公司的一项资产增加了 2400 万元，同时另一项资产减少了 1600 万元，而负债增加了 800 万元，显然，当这项交易发生之后，这家企业的资产负债表同样满足 “资产 = 负债 + 股东权益” 的基本关系。</p>
+<p>在采购了原材料之后，这家公司就可以生产产品了。在生产产品的过程中，它把 2400 万元的原材料全都用掉了，此外还为公司的水电开支和员工的工资支付了 1200 万元的现金。以上这些经济活动又将如何影响这家公司的财务报表呢？</p>
+<p>首先，原材料一定是减少的，减少金额达到了 2400 万元；其次，货币资金也一定是减少的，这部分减少的货币资金被企业用来支付员工的工资和公司的水电用度 —— 也就是说，货币资金会减少 1200 万元。那么这 2400 万元的原材料和 1200 万元的员工工资、水电用度换来了什么呢？显然，是产品。产品属于存货，所以，在这项经济活动中，这家公司的财务报表上一定会增加 3600 万元的产成品存货。</p>
+<p>让我们来看一看生产的过程吧。生产产品需要付出生产成本，生产成本包括原材料、支付给工人的工资、生产车间的水电支出，还包括厂房设备的折旧等。看到这里，你可能已经发现了一个奇怪的现象，生产成本虽然带着 “成本” 两个字，但它并不在利润表上，而在资产负债表上，具体而言，就是体现在资产负债表的存货中。</p>
+<p>既然记录在资产负债表里的成本是生产成本，那利润表中的成本又叫什么？它的名字叫作 “营业成本”—— 卖出产成品之后，企业虽然获得了一笔收入，却也因此失去了自己生产出的产品，这些交易产生的直接损失便是所谓的营业成本。刚才说到的体现在 “存货” 中的产品接下来就会被卖掉，而一旦被卖掉，企业就失去了这些产品，它们变成了我们获得收入过程中的成本，即营业成本。</p>
+<p>那么，营业成本和生产成本之间有什么关系呢？其实，它们之间是部分与整体的关系 —— 营业成本是生产成本的一部分，是那些被卖掉的产品的生产成本。</p>
+<p>以上就是生产成本如何一步一步反映在财务报表上的过程：它首先被记录在资产负债表中的 “存货” 一项中；这之后，随着存货被卖掉，生产成本便被反映在利润表的营业成本当中。</p>
+<h2 id="为什么会有人做赔本的买卖"><a class="header" href="#为什么会有人做赔本的买卖">为什么会有人做赔本的买卖？</a></h2>
+<p>什么是生产成本？生产成本包括原材料、人工和制造费用，制造费用又包括生产车间的水电开支、厂房设备的折旧等。这些生产成本可以分为两类，一类叫作 “变动成本”，另外一类叫作 “固定成本”。变动成本是指会随着产量的增加而不断增加的这一类成本，也就是说，每多生产一件产品，企业就会在这个项目上多投入一份成本。而固定成本则是指在一定范围内，无论产量多少，数额都不会发生变化的一类成本。显然，原材料就属于变动成本，厂房设备的折旧则是一种固定成本。那么，人工属于什么成本呢？如果企业支付的是固定工资，那人工便应该属于固定成本；如果企业以计件的形式支付工资，那人工便应该属于变动成本。</p>
+<p>制造费用（Manufacturing Overhead）：企业为生产产品或提供劳务而发生的，应记入产品或劳务成本但没有专设成本项目的各项生产费用。</p>
+<p>固定成本和变动成本对一家企业的影响是完全不同的。这家新成立的公司生产一件产品的变动成本是 60 元，固定成本是 40 元，也就是说，这家公司生产一件产品所耗费的成本是 100 元。现在，另一家公司给它下了一个单品价格为 80 元的订单，接下来，它的每个产品就要面临 20 元的亏损。看上去，这是一笔一定要叫停的交易，然而，这家新公司的老板却最终接下了这笔生意，这是怎么回事呢？</p>
+<p>我们知道，固定成本是无论如何都不会发生变化的，也就是说，企业无论生产多少产品，都必须支付固定成本。对于这家公司来说，每个产品都必须承担 40 元固定成本，也就是说，无论它是否接这笔订单，每件产品都注定会亏损 40 元。亏损 40 元还是亏损 20 元？从成本的角度考虑，这家公司不得不忍痛接下了这笔订单。</p>
+<p>因此，把成本区分为变动成本和固定成本是非常重要的，因为这两种成本会对企业决策产生重大影响。</p>
+<p>变动成本（Variable Cost）：总额在相关范围内随着业务量的变动而呈线性变动的成本。直接材料是典型的变动成本，在一</p>
+<p>定期间内它们的发生总额随着业务量的增减而成正比例变动，但单位产品的耗费则保持不变。</p>
+<p>固定成本（Fixed Cost）：总额在一定时期和一定业务量范围内，不受业务量增减变动影响而能保持不变的成本。</p>
+<h2 id="固定成本-搞出-了什么乱子"><a class="header" href="#固定成本-搞出-了什么乱子">固定成本 “搞出” 了什么乱子？</a></h2>
+<p>有人说，仅仅扩大产量而不扩大销量，可以增加毛利润。毛利润是营业收入与营业成本的差额。那么，不扩大销量，营业收入没有增加，利润自然也不会增加，这句话显然是错误的。但为什么有人会做出这样的判断呢？</p>
+<p>晖平的公司去年生产 1000 件产品一共产生了 1000 万元的固定成本和 1000 万元的变动成本，生产成本总额达到了 2000 万元。这笔生产成本被记录在资产负债表当中的 “存货” 一项中。随后，晖平把这 1000 件产品全部都卖掉了，这也意味着这项价值 2000 万元的存货已经全部转化为利润表当中的营业成本。</p>
+<p>今年，晖平的公司生产了 2000 件产品，产生了 2000 万元的变动成本；此外，由于固定成本不受产品产量的限制，因而晖平的公司今年依旧产生了 1000 万元的固定成本。可遗憾的是，晖平的公司今年错误地预测了市场，只卖掉了 1000 件产品。因此，会有 50% 的生产成本随着产品的销售而进入利润表的营业成本当中，剩下 50% 的成本则仍然保留在存货里。也就是说，晖平的公司今年会产生 1500 万元的存货和 1500 万元的营业成本。</p>
+<p>大家仔细看一看，这家公司呈现的不就是 “仅仅扩大产量而不扩大销量” 的情况吗？那么，现在让我们来看看晖平公司的毛利润是否会增加。</p>
+<p>去年和今年两年，晖平公司销售产品的总量是一样的，倘若产品的售价也没有发生变化，其营业收入便是完全相等的。两年的营业成本则分别是 2000 万元和 1500 万元，因此，今年的毛利润会比去年的毛利润多了 500 万元。</p>
+<p>真是奇怪了，仅扩大生产而不扩大销售，毛利润居然真的增加了，这是怎么回事？奥妙就在固定成本上。由于在今年，等额的固定成本被摊在 2000 件而不是 1000 件产品上，所以当只有一半产品被卖掉的时候，也就只有一半的固定成本进入营业成本中。营业成本减少，毛利润自然就提高了。</p>
+<p>问题来了：如果一家企业的毛利润增加，这通常意味着这家企业的业绩提升了，效益变好了；可晖平的公司干了什么呢？它错误地预测了市场，过多地生产了产品，结果造成了产品积压。也就是说，当经营状况不好的时候，财务报表反而变得更好看了。</p>
+<p><strong>因此，不能简单地把毛利润增加看成业绩提升的表现。事实上，毛利润的提升不一定是由业绩提升引起的，还有可能是因为产成品库存增加。如果产成品库存积压的同时，毛利润也提升了，那么这个毛利润的提升其实是不可信的。这种现象在高固定成本的重资产行业会格外突出。</strong></p>
+<p><strong>同样，如果一家企业同时发生了毛利润减少和产品库存减少的情况，那么，这个毛利润的减少也不是真实的。因为如果卖掉了去年的库存，就会有去年的生产成本转化为今年的营业成本，今年的毛利润也就少了。但事实上，对企业来说，减少库存无疑是大大的好事。</strong></p>
+<h2 id="销售活动对财务报表有什么影响"><a class="header" href="#销售活动对财务报表有什么影响">销售活动对财务报表有什么影响？</a></h2>
+<p>有了设备和厂房，请了工人，也生产出了产品，现在需要做的，就是把这些产品卖出去。因此，这家新公司所进行的第七项经济活动便是 —— 卖出产品。于是这家企业和客户签订了一项合同，金额是 4300 万元，截止到交易年年末，它从客户那里收到了 3000 万元的现金，还有 1300 万元欠款没有结算。</p>
+<p>这项经济活动的 “战线” 拉得很长，我们得一步一步分解它，才能了解它对这家企业的财务报表所产生的影响。</p>
+<p>这家公司跟客户签订了一份价值 4300 万元的合同，并且给客户发了货，因此它获得了 4300 万元的营业收入。有人说，这家企业明明只收到了 3000 万元现款，为什么会获得 4300 万元的营业收入呢？其实，获得多少收入取决于客户愿意付多少钱，以及企业自身是否已经将产品转移给了客户。这家新公司给客户发了货，客户也承诺付款 4300 万元，因此，它的营业收入当然应该是 4300 万元，而不仅仅是已经收到的 3000 万元。</p>
+<p>但是，这家企业的货币资金却只增加了 3000 万元，其他 1300 万元属于应收账款。</p>
+<p>另外，这家公司给客户发了货，也就同时失去了这批货，因此在资产负债表上，其存货理应减少。鉴于已卖出产品的成本是 3100 万元，因此被减少的存货金额也应当是 3100 万元。</p>
+<p>与此同时，这 3100 万元便转化为利润表中的 “营业成本” 一项。</p>
+<p>到这里，我们才算是在财务报表中记录了这个交易涉及的各项数据。这个交易对财务报表的影响可谓非常复杂，我们得一项一项看，这笔交易到底使这家公司的资产、负债和股东权益各自发生了什么变化。</p>
+<p>这家公司的货币资金增加了 3000 万元，应收账款增加了 1300 万元，库存减少了 3100 万元，那么，这家公司的资产发生了什么变化</p>
+<p>呢？3000 万元 + 1300 万元 - 3100 万元 = 1200 万元。显然，这家公司的资产增加了 1200 万元。</p>
+<p>那负债又有什么变化呢？我们发现没有。</p>
+<p>再来看看股东权益，好像也没有。</p>
+<p>那完蛋了，这张报表一定是出了问题。因为负债和股东权益之和一定要等于资产，所以怎么会有资产一直在涨，负债和股东权益却一动不动的情况呢？问题出在哪儿了？</p>
+<p>实际上，企业的收入在扣除了成本费用、税务开支、分配利润之后，还剩下了一部分，这部分就是所谓的未分配利润。而未分配利润恰恰是一项股东权益，是股东对公司追加的投资。这样一来，这家公司的资产负债表就将重新建立资产等于负债加股东权益的关系。因此，现在这种资产不等于负债加股东权益的情况，只是一个暂时的状态。</p>
+<p>这个就是销售活动对企业财务报表所产生的影响。</p>
+<p>接下来，这家公司为下一年的生产采购了一批原材料，并为此预付了 150 万元，这是这家公司进行的第八项经济活动。这家公司的货币资金会因此减少 150 万元，但也同时得到了一个向供货商收货的权利。因此，这第八项经济活动会给这家公司的财务报表带来两个影响：首先，它的货币资金会减少 150 万元；与此同时，会多一笔金额为 150 万元的预付账款。这是一项比较简单的交易，它并没有改变资产的总量，而只是将一种资产变成了另一种资产，也就是将货币资金变成了预付账款。</p>
+<h2 id="研发支出对财务报表产生了什么影响"><a class="header" href="#研发支出对财务报表产生了什么影响">研发支出对财务报表产生了什么影响？</a></h2>
+<p>第九项经济活动是，这家公司花费 50 万元研制出一种低成本处理污染的技术。这件事会如何影响它的财务报表呢？</p>
+<p>显然，货币资金首当其冲，它将被减少 50 万元。此外，为了保持整张报表的平衡，报表上肯定还得相应地增加些什么。有人说，技术属于无形资产，所以我们得在报表上记录 50 万元的无形资产。听上去好像是这么回事儿，但是很抱歉，这个答案是错误的。</p>
+<p>关于研究开发的支出，会计准则中有明确规定。</p>
+<p>首先，会计准则规定，企业的研究支出应被记录在管理费用当中；其次，产品开发阶段的投入，如果满足一定条件的话，可以被记录在无形资产当中。那么，什么是企业的研究，什么是产品的开发呢？具体而言，研究是指技术的研究；而产品的开发是指技术研究成功后，企业为了将技术应用到产品制造中，设计、制作模具等所产生的花费。</p>
+<p>接着，会计准则又说了：技术研究成功之后，用于申请专利的这部分费用可以被记入无形资产。也就是说，如果这家公司花了 50 万元去研究技术、5000 元去申请专利，那么，只能有 5000 元被记入它的无形资产当中。</p>
+<p>听上去是不是有点不合常理？研究是一种投资行为，并将长期影响这家公司未来的发展，研究的支出无疑当属企业的无形资产。那么，会计准则为何要做出这样不合常理的规定？</p>
+<p><strong>其实，不仅只有中国有这样的规定，世界上大部分国家的会计准则都是这么说的。其原因在于，研究具有很大的不确定性，成功了自然可以帮助企业赚钱，可万一失败了呢？</strong></p>
+<p>有人曾对美国的制药行业做过统计：研发一种新药平均需要花费 14.9 年的时间与 5 亿美元；在这 5 亿美元的研发费用当中，又有 40% 也就是 2 亿美元是在进入临床试验阶段之前就要投入的；在进入临床试验阶</p>
+<p>段的药品中，只有 18% 是获得最终批准的。也就是说，前期投入的 2 亿美元，大多数都打了水漂，可见研究的结果有多大的不确定性。</p>
+<p>会计实在是一个太谨慎的行业，这群谨慎的会计才不会把这么不确定的数据当作企业的资产呢！—— 既然它不能为企业带来什么有用的东西，花完了就是花完了，那它就是费用。</p>
+<p>这个时候，有一些更谨慎的会计就问了：那如果这项技术在当年便研究成功了呢？既然当年的投入当年就有回报，那不确定性就不存在了呀。但是，一些更更谨慎的会计说：“技术研究成功又不等于商业成功，这项新近研究出来的技术可能没有任何商业价值啊！” 的确是这样。因此，还是应当把研究技术的支出记在管理费用当中。</p>
+<p><strong>再次，会计准则还规定：外购技术的支出是记在无形资产中的。既然是购买所得，就说明该项技术的商业价值得到了认可，于是应将其记在企业的无形资产当中。所以说，企业通过自己的研究获得的技术，如果不申请专利，不会得到半点在无形资产这一项上体现的机会；我们在报表上看到的那些技术，多半是买别人的。</strong></p>
+<p>研发支出（Research and Development Expenditure）：研究与开发某项目所支付的费用。我国会计准则对研发费用处理分为两大部分：一是研究阶段发生的费用及无法区分研究阶段研发支出和开发阶段研发支出的，全部费用化，记入管理费用；二是企业内部研究开发项目开发阶段的支出，能够证明符合无形资产条件的支出，全部资本化，记入无形资产，分期摊销。</p>
+<p>广告的情况也差不多。为了创立品牌，我们可能要打广告，但是由于无法估计广告会为企业创造多少价值，所以只能把广告支出记在营业费用当中。</p>
+<p>所以说，有一些资产，比如广告创造的品牌价值、企业自主研发成功的技术，根本就没有得到体现，也没有得到评估！这就使得这些资产成了 “表外资产”。它们确实存在并且有价值，但是由于上面说到的原因，它们在报表上没有体现。而另一方面，对这些无形资产进行价值评估又是比较困难的。所以，一些别有用心的企业就是利用这一点进行了一些交易，比如将表外无形资产授权他人使用、转让他人，或者作价投资，并且通过影响交易定价实现一些特殊目的。</p>
+<p>表外资产（Off Balance Sheet Asset）：一般是指按会计准则（GAAP）容许的会计技巧，企业将旗下一些资产，包括子公司、贷款、衍生工具等置于此项，以降低公司债务与资本比率；表外资产无须列于资产负债表内，但要在财务报告中以注释形式列明。研发投入、组织建设、品牌渠道等都属于表外资产。</p>
+<p>但是现实中也出现过这样的情况：明明是企业自己研究出来的技术，研究支出却被记在无形资产当中了，你说这家公司一定违反了会计准则，但它却偏偏没有。这到底是怎么回事呢？</p>
+<p>有人说，或许是这家公司把技术卖给了别人又买了回来。确实有这种可能，但这不是唯一的解释。有些公司的研发部门是独立的法人，为了获得技术，这些公司必须向自己的研发部门购买技术。这个时候，这项技术在这家公司就变成了外购的技术，也就可以被记录在无形资产当中了。</p>
+<p>因此，会计准则虽然对研究支出规定了唯一的记录方式，但企业却能够通过设计不同的组织结构，来实现不同的会计结果。</p>
+<p>既然出现了把自创技术放在费用当中和无形资产当中两种记录方式，那我们就要评估一下这两种方式的优劣了。一般来说，一家利润高的公司更愿意把它记在费用里，这样可以减少自己的税收支出；但对于一些在经营上有困难，或是尚且处在创业阶段的企业来说，这样做就会显得它们的资产很少、利润很低，它们可能就更愿意把它记在无形资产里，让自己的财务报表好看一些。</p>
+<p>看上去，研究支出非常复杂，但在财务报表上反映它其实很简单。就刚才这项经济活动而言，由于是这家公司自己的研发部门进行的技术研究，所以研究支出就应该被记在管理费用中，也就是 50 万元的货币资金变成了 50 万元的管理费用。</p>
+<h2 id="财务报表是怎样诞生的"><a class="header" href="#财务报表是怎样诞生的">财务报表是怎样诞生的？</a></h2>
+<p>第十项经济活动是：这家公司支出了 400 万元现金，其中 250 万元用来支付销售人员的工资和销售部门的开支，150 万元用来支付管理人员的工资和管理部门的开支。因此，这第十项经济活动会给这家公司的财务报表带来三个影响：首先，它的货币资金会减少 400 万元；其次，会增加一笔营业费用，也即用来支付销售人员工资和销售部门开支的 250 万元；最后，还会产生 150 万元的管理费用，管理人员的工资和管理部门的开支会被划归到利润表当中的管理费用一项。</p>
+<p>接下来，第十一项经济活动是：这家企业这一年一共支付了 130 万元利息。也就是说，这家公司的货币资金会因此减少 130 万元，而利润表上的财务费用也因此增加 130 万元。</p>
+<p>此外，这家公司还上缴了金额为 100 万元的所得税，这是它的第十二项经济活动。也就是说，在资产负债表上，这家公司的货币资金会减少 100 万元；而在利润表上，也增加了一种费用支出，即所得税。</p>
+<p>扣除了营业成本、营业费用、管理费用、财务费用和企业应缴的所得税之后，这家企业到底还剩下多少净利润呢？答案是 520 万元。</p>
+<p>这个 520 万元是怎么得到的呢？这一年，这家公司一共获得了 4300 万元的收入，扣除 3100 万元的成本，毛利润达到 1200 万元。接下来，还要扣除这家公司在这一年所产生的 250 万元营业费用、200 万元管理费用和 130 万元的财务费用，就能得知它在这一年的利润总额达到了 620 万元。再扣除 100 万元的所得税，就能得出上文中提到过的净利润额度：520 万元。千万别忘了利润表的基本逻辑：用收入扣除了所有的成本费用，就得到了最终的利润。</p>
+<p>这家企业今年的收入达到了 4300 万元，其中的 520 万元是净利润，也就是说，它的收入中有超过 10% 的部分都变成了利润，这在通常的制造业企业当中算是还不错的情况。尤其对一家新公司来说，这样的情况应该算是非常理想的了。</p>
+<p>那么，这 520 万元的净利润可以拿去做什么呢？假设这家公司今年并没有提取盈余公积，因此，它所从事的第十三项经济活动就是，分配 100 万元利润给自己的股东。这项活动会给企业的财务报表带来什么影响呢？货币资金减少 100 万元，自然毋庸赘言；其次，这减少的 100 万元货币资金被用作现金股利，分配给了企业的股东；剩余的 420 万元，便是所谓的未分配利润，作为股东对企业追加的投资出现在资产负债表中的股东权益一项中。</p>
+<p>我们再来看看现在呈现在我们面前的是一张怎样的资产负债表吧（见表 3）。我们会看到，截至年末，这家公司一共获得了 9520 万元的资金。这些资金是哪里来的呢？资产负债表的右边给了我们答案。首先，股东投入了 3200 万元，然后公司又到银行借了 5100 万元，在经营的过程中欠了供应商 800 万元，最后股东又追加了 420 万元的投资。那这些钱都变成什么了呢？我们看看资产负债表的左边，就会看到，有 1720 万元仍然是货币资金，1300 万元变成了应收账款，500 万元变成了存货，150 万元变成了预付账款，5700 万元变成了固定资产，150 万元变成了无形资产。</p>
+<p>在这样的一张资产负债表中，哪些项目是令企业高管头痛的风险项目呢？显然，应收账款是最恐怖的。这笔钱到底能不能收回来，又能收回来多少，都是未知之数啊。假如，1300 万元的应收账款当中有 200 万元收不回来了，那就意味着企业的资产发生了减值。随之而来的连锁反应是，利润也会减少。也就是说，如果不考虑对税收的影响的话，企业的净利润将会缩水到 320 万元。可以想象，如果不是 200 万元收不回来，而是 1000 万元收不回来的话，企业的净利润不就变成负的了吗？</p>
+<p>其实，不仅是应收账款，风险简直无处不在。比如说存货，随着市场价格的波动，存货的价值可能会减少。再比如说固定资产，随着使用年限不断增加，也会发生减值。甚至无形资产，也存在这样的问题。因此，资产得到保证对于获得净利润来说是一件很重要的事。</p>
+<h2 id="资产负债表与利润表之间有什么关系"><a class="header" href="#资产负债表与利润表之间有什么关系">资产负债表与利润表之间有什么关系？</a></h2>
+<p>资产负债表和利润表之间有什么关系呢？</p>
+<p>我们说过，资产负债表表示了一个时间点的概念，而利润表则是一张反映时间段的报表。比如，今天早上 10 点的时候，锐娜的兜里有 100 元钱，那这笔钱就会被记录在资产负债表里；而锐娜这个月辛苦工作赚了 1000 元，这 1000 元将会被记录在利润表里。</p>
+<p>举例来说。如果我们看两个时点，一个是 2018 年的 12 月 31 日，一个是 2019 年的 12 月 31 日，从 2018 年的 12 月 31 日到 2019 年的 12 月 31 日，这家新公司经历了整个 2019 年。在这一年中，这家公司一共盈利了 520 万元，它给自己的股东们分了 100 万元，还剩下 420 万元。那么，这 420 万元将被归入资产负债表当中的股东权益一项，属于未分配利润。但是在这之前，也就是 2018 年 12 月 31 日，这家公司的账上已经有 1000 万元的未分配利润，那么，到 2019 年 12 月 31 日，它的账上就有 1420 万元的未分配利润。</p>
+<p><strong>这就是利润表和资产负债表最直接、最表面的联系了 —— 利润表当中的一部分利润有可能被归入资产负债表中的未分配利润这一项，未分配利润将两张表联系在一起。</strong></p>
+<p>其实，不同的财务报表之间还有更加深入的内在的联系。这种内在的联系是什么呢？我们将通过第三张财务报表 ——“现金流量表” 来了解。届时，这三张财务报表将构成一个有机整体，为我们描摹企业的画像，透露出这家企业的一切秘密。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="利润表：企业的摄像机.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="解剖现金流量表.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="利润表：企业的摄像机.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="解剖现金流量表.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

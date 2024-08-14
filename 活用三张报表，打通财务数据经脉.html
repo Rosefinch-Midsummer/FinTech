@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>活用三张报表，打通财务数据经脉 - 財務金融</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="前言.html">前言</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="一本书读懂财报.html"><strong aria-hidden="true">1.</strong> 一本书读懂财报</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="资产负债表：企业的照相机.html"><strong aria-hidden="true">1.1.</strong> 资产负债表：企业的照相机</a></li><li class="chapter-item expanded "><a href="利润表：企业的摄像机.html"><strong aria-hidden="true">1.2.</strong> 利润表：企业的摄像机</a></li><li class="chapter-item expanded "><a href="财务报表的诞生和内在逻辑.html"><strong aria-hidden="true">1.3.</strong> 财务报表的诞生和内在逻辑</a></li><li class="chapter-item expanded "><a href="解剖现金流量表.html"><strong aria-hidden="true">1.4.</strong> 解剖现金流量表</a></li><li class="chapter-item expanded "><a href="活用三张报表，打通财务数据经脉.html" class="active"><strong aria-hidden="true">1.5.</strong> 活用三张报表，打通财务数据经脉</a></li><li class="chapter-item expanded "><a href="找出影响财务数据的因素.html"><strong aria-hidden="true">1.6.</strong> 找出影响财务数据的因素</a></li><li class="chapter-item expanded "><a href="怎样的公司才算是好公司？.html"><strong aria-hidden="true">1.7.</strong> 怎样的公司才算是好公司？</a></li><li class="chapter-item expanded "><a href="控制风险的要诀.html"><strong aria-hidden="true">1.8.</strong> 控制风险的要诀</a></li></ol></li><li class="chapter-item expanded "><a href="聪明的投资者.html"><strong aria-hidden="true">2.</strong> 聪明的投资者</a></li><li class="chapter-item expanded "><a href="证券分析.html"><strong aria-hidden="true">3.</strong> 证券分析</a></li><li class="chapter-item expanded "><a href="投资最重要的事.html"><strong aria-hidden="true">4.</strong> 投资最重要的事</a></li><li class="chapter-item expanded "><a href="小狗钱钱.html"><strong aria-hidden="true">5.</strong> 小狗钱钱</a></li><li class="chapter-item expanded "><a href="富爸爸穷爸爸系列.html"><strong aria-hidden="true">6.</strong> 富爸爸穷爸爸系列</a></li><li class="chapter-item expanded "><a href="巴比伦最富有的人.html"><strong aria-hidden="true">7.</strong> 巴比伦最富有的人</a></li><li class="chapter-item expanded affix "><li class="part-title">Online Courses</li><li class="chapter-item expanded "><a href="生活中的货币时间价值.html"><strong aria-hidden="true">8.</strong> JNU生活中的货币时间价值</a></li><li class="chapter-item expanded "><a href="财务分析与决策.html"><strong aria-hidden="true">9.</strong> THU财务分析与决策</a></li><li class="chapter-item expanded "><a href="财务报表分析.html"><strong aria-hidden="true">10.</strong> UIBE财务报表分析</a></li><li class="chapter-item expanded "><a href="管理会计学.html"><strong aria-hidden="true">11.</strong> SWUFE管理会计学</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">財務金融</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="活用三张报表打通财务数据经脉"><a class="header" href="#活用三张报表打通财务数据经脉">活用三张报表，打通财务数据经脉</a></h1>
+<!-- toc -->  
+<h2 id="为什么每家企业都需要这三张财务报表"><a class="header" href="#为什么每家企业都需要这三张财务报表">为什么每家企业都需要这三张财务报表？</a></h2>
+<p>现在我们已经认识企业的三张报表了，可为什么每个企业都必须做这三张财务报表？为什么每个国家都要求企业做这三张财务报表？</p>
+<p>回忆一下刚才那家新设立的公司。在刚刚设立的第一年里，这家公司一共发生了 13 项经济活动。这 13 项经济活动包括融资行为、投资行为和经营活动，涉及债务融资、股权融资、采购、生产、研发、管理等各个方面。因此，即使仅仅进行了 13 项经济活动，这家公司仍然 “麻雀虽小、五脏俱全” 地运作了起来。这 13 项经济活动实际上是企业正常经营情况的缩影，涵盖了一家企业正常经营过程中各种各样的经济行为。</p>
+<p>这 13 项经济活动是如何被反映到这家公司的报表上来的呢？</p>
+<p>首先，利润表主要被用来描述企业的经营活动。最早与利润表产生联系的是第七项经济活动，即销售产品；这之后，在利润表上体现的还包括企业在经营过程中支付的各种费用、支付的所得税以及研发支出等。这些经济活动只与经营有关，所以利润表是一张主要描述经营活动的财务报表。</p>
+<p>在经营活动中，也会存在应收账款、应付账款等项目，它们会被列在资产负债表中。当然，资产负债表还有很多其他的项目，让我们知道企业的固定资产有多少、无形资产有多少、长期投资有多少、短期借贷有多少、股东权益有多少…… 它们都属于投资或融资行为。因此，资产负债表虽然与经营活动有那么一点点的关系，但和投资、融资才算是真正的 “血亲”。</p>
+<p>看上去，企业的经营、投资和融资活动已经被资产负债表和利润表交代清楚了，这家企业已经不再需要第三张报表了，但事实的真相似乎并不是这样。我们确实还有第三张报表 —— 现金流量表。</p>
+<p>现金流量表既涵盖了企业经营活动的现金流，也包括了企业投资和融资活动的现金流，也就是说，它把企业的经营、投资、融资活动又重新描述了一遍。看上去，现金流量表似乎做了一件重复的事儿。<strong>其实不然，不同于资产负债表和利润表，现金流量表是站在风险的角度，揭示企业的风险状况和持续经营的能力。</strong></p>
+<p><strong>的确如此，这三张报表实际上是站在两个不同的角度。在第一个维度上，现金流量表描述了一家企业能否生存下去，即所谓风险的视角；在第二个维度上，资产负债表和利润表则展示了倘若这家企业能够继续生存它将是什么样子 —— 有多少家底，又有多少收益，即所谓收益的视角。</strong></p>
+<p>要了解一家企业，这两个维度缺一不可，企业需要在这两个维度之下全面了解自己的经营、投资、融资状况。这就是每个企业都需要三张报表，而且一定是这三张报表的原因。因为它们构成了一个有机的整体，它们完整地、不多不少地描述了一家公司的所有经济活动。</p>
+<p>那么，企业还需要第四张、第五张或者更多的财务报表吗？当然不，有这三张就足够了。</p>
+<h2 id="银行家和投资人最爱哪张报表"><a class="header" href="#银行家和投资人最爱哪张报表">银行家和投资人最爱哪张报表？</a></h2>
+<p>既然三张报表各有各的侧重点，它们共同构成一个有机的整体，完整地描述企业的状况，我们就会想到，不同的财务报表其实承担着不同的角色，因此，企业在做不同的决策时，或许会侧重从不同的财务报表获取信息。</p>
+<p>比如说，如果现在这家公司要去银行贷款，银行一定会全神贯注地盯着它的现金流量表。这就怪了，为什么是现金流量表，而不是资产负债表？</p>
+<p>有人说，因为资产负债表毫无保留地泄露了这家公司的家底，也就因此预示了这家公司有无还债的能力以及还不起钱时可以用来抵债的资产。</p>
+<p>似乎有点道理，但这么说的人实际上误解了银行的 “真心”。银行从来都不希望企业还不起钱，也不希望看到任何一家企业通过变卖自己的资产来还债，它希望企业手头永远有大量的现金。在这个角度上，银行最关心的当然是现金流量表，而非资产负债表。</p>
+<p>那么投资者呢，他们更关注哪张报表？投资者最关心企业的收益，但他们关心的是未来的而非过去的或者现在的收益。到底是哪张财务报表最能展现企业未来的盈利水平呢？</p>
+<p>答案是利润表。因为利润表将可持续的利润（经营利润）和不可持续的利润（营业外收支、补贴收入、汇兑损益）分别列示，不仅能展示企业现在赚了多少钱，还能使读报表的人形成对企业未来盈利的预期。所以，如果一个投资者想知道这家企业未来的盈利状况如何，就应该求助于利润表。</p>
+<p>现在资本市场非常活跃，每天都有很多兼并收购的行为发生。现在，小张的公司也要去收购另一家公司了，它应该最关注那家公司的哪一张财务报表呢？</p>
+<p>有人说，那一定是利润表了，因为收购也是为了赚钱啊。但是，一旦这家企业被收购，它的经营情况可能会发生翻天覆地的改变，那它的利润肯定不会延续原先的发展趋势，利润表也就不能如实反映这种趋势了。</p>
+<p>同样的道理，现金流量表也 “阵亡” 了，它不一定能帮助小张的公司预测这家公司未来的现金收益情况。</p>
+<p>所以到底应该关注哪张财务报表呢？</p>
+<p>我们买东西时总要先搞清楚这件东西是什么、有什么功能，购买一家公司当然更是如此。用会计的语言说，我们买公司是买了资产、负债，还是股东权益呢？如果你认为是资产，那就大错特错了。实际上，购买一家公司相当于购买了它的股东权益，因为收购使你取代了原有股东而成为这个公司的新股东，所以你买下的是股东权益。既然成为这家公司的新股东，显然，你最该关注股东权益，而关注股东权益当然就要关注资产负债表了。</p>
+<p>由于 “股东权益 = 资产 - 负债” 永恒成立，购买股东权益也就意味着同时购买了这家公司的资产与负债。购买资产也就罢了，购买负债是一种难以想象的行为，可不是嘛，谁会购买负债啊？可实际上，收购公司时你就买了那家公司的负债。不用花钱就能获得一家公司，就是所谓的零成本收购，显然是痴人说梦，除非…… 除非购买者还同时承担了这家公司的所有负债。</p>
+<h2 id="收购一家公司时资产和负债谁更-危险"><a class="header" href="#收购一家公司时资产和负债谁更-危险">收购一家公司时，资产和负债谁更 “危险”？</a></h2>
+<p>在购买一家公司的时候，你一定会担心，要购买的这家公司是不是用了各种方式伪装自己，把自己 “装扮” 得牛气十足 —— 资产很多，但负债却很少。<strong>其实，资产和负债都是风险，资产是一种被高估的风险，而负债是一种被低估的风险</strong>。为了绕开风险，你找了一家专业机构，让它一项一项地评估这家公司的资产和负债。</p>
+<p>你以为你已经解决了这个问题，其实不是。评估结果可以使你看清企业的资产，但却并不能如实地反映负债。</p>
+<p>这家公司那个奸猾的老总向你耍了一个大花招 —— 这家公司实际上欠了 50 笔债务，但它却只向你通报了 30 笔，而隐藏了其余 20 笔。因此，在这种情况下，找专业机构把已知的 30 笔负债都搞清楚并不能解决问题，因为你仍然不知道另外 20 笔债务的存在。</p>
+<p><strong>因此，在兼并过程中，资产和负债这两种风险，究竟哪个更难控制呢？显然是负债。低估的风险相对更不可控，一旦被兼并者的财务报表隐瞒了一些负债，兼并者就面临着极大的风险。</strong></p>
+<p>当然，造成负债没有出现在报表上的原因多种多样，或有负债的存在便是其一。什么是或有负债呢？比如说，A 公司向 B 公司借了 500 万元，而你要收购的这家 C 公司恰好为 A 公司做了担保，那么 C 公司也就同时背上了一笔或有负债。在这种情况下，要是 A 公司 “跑路”，C 公司就得代 A 公司向 B 公司偿还这笔债务；但如果 A 公司按时还了债，C 公司自然可以高枕无忧。因此，那些无法确定是否存在的负债，就是所谓的或有负债。</p>
+<p>除了或有负债，表外负债是更常见的原因。表外负债，就是那些明明存在但却没有被记录在财务报表上的负债。造成这种现象的原因非常复杂，容笔者在此先卖个关子。</p>
+<h2 id="怎么做同型分析关键词结构分析"><a class="header" href="#怎么做同型分析关键词结构分析">怎么做同型分析？（关键词：结构分析）</a></h2>
+<p>在搞定了财务报表之后，就得了解一些财务分析的基本方法了。掌握了方法，才能进一步分析报表，否则即使对报表了如指掌、倒背如流，也依然无法对企业进行引导和指示。</p>
+<p><strong>都有哪些财务分析的方法呢？同型分析恐怕是最常用的。</strong></p>
+<p><strong>这是一种结构分析。各个项目在利润表中分别占比多少就是利润表的结构；从收入到利润的过程中，每一个步骤都损耗了多少，就是对利润表进行同型分析的成果。</strong></p>
+<p>对资产负债表，同样可以做这样一个分析。资产负债表详细列明了各个项目在企业资金总量中所占的比重，这就是资产负债表的结构，而同型分析的着眼点正在于此。</p>
+<p>那么，到底怎么做同型分析呢？还记得那家熟悉得不能再熟悉的新公司吗？让我们先把它的利润表当成 “小白鼠”，尝试一下所谓的同型分析。</p>
+<p>使所有的项目都除以收入，再乘以 100%，就能获得这些项目在收入中的占比，也就得到了同型分析的结果（见表 6）：营业成本为 3100 万元，占收入的 72%；营业费用、管理费用和财务费用占收入的比重分别是 6%、5% 和 3%；营业利润所占的比重为 14%，在扣除了 2% 的所得税之后，净利润在收入中的占比达到了 12%。</p>
+<p>＞＞＞表 6 利润表及其同型分析　（金额单位：万元）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240807213337.png" alt="" /></p>
+<p>这是一张进行了同型分析的报表，它让我们更直观地了解了利润表的结构。因为营业成本占收入的 72%，营业费用、管理费用和财务费用又共同占据收入 14% 的比例，再加上 2% 的所得税，这就是为什么这家公司的营业收入就只有 12% 能够转化为利润。</p>
+<p>计算每一项资产在总资产中的占比，也就获得了对资产负债表进行同型分析的结果（见表 7）：货币资金占公司总资产的 18%、应收账款占 14%、预付账款 1.5%、存货 5%，也就是说，流动资产一共占这家公司资产总额的 38.5%；与此同时，无形资产又占了 1.5% 的比重；余下的固定资产所占比例则达到 60%。一家固定资产占比如此之大的企业，想必是一家制造业的企业。另外，这家公司的应收账款竟然占资产总额的 14%，这是一个相当大的比重，所以这家公司的产品应该没那么好卖，它或许正面临着巨大的竞争和来自同行的挑战。</p>
+<p>此外，负债占了总资产的 62%，负债当中又以短期借款所占比例最大，其次为应付账款；而股东权益则占据了剩余 38% 的比重，其中，最初投入的 3200 万元股本占总资产的 34%，未分配利润占 4%。</p>
+<p>＞＞＞表 7 资产负债表及其同型分析　（金额单位：万元）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240807213533.png" alt="" /></p>
+<p><strong>因此，同型分析让企业更加了解财务报表的结构，它远比一般的财务报表直观：通过对利润表进行同型分析，企业可以得知自己是怎样一步步实现从收入到利润的；通过对资产负债表进行分析，企业可以获悉自己资产的构成和资金的各项来源。</strong></p>
+<p><strong>当然，如果对同型分析的结果进行比较，就可能获得更多的信息。比如说，可以和自己的过去相比，这就是所谓的趋势分析；也可以跟别的企业相比，无论是竞争对手还是行业的标杆企业，或者行业内的平均水平，这就是所谓的比较分析。在进行充分比较的前提下，同型分析能发挥最大的功效。</strong></p>
+<p>趋势分析（TrendAnalysis）：将实际达到的结果，与不同时期财务报表中同类指标的历史数据进行比较，从而确定财务状况、经营成果和现金流量的变化趋势和变化规律的一种分析方法。</p>
+<p>比较分析（ComparingAnalysis）：通过两个或两个以上相关经济指标的对比，确定指标间的差异，并进行差异分析或趋势分析的一种分析方法。</p>
+<h2 id="怎样用比率分析企业的盈利能力关键词效益毛利率净利润率净资产收益率"><a class="header" href="#怎样用比率分析企业的盈利能力关键词效益毛利率净利润率净资产收益率">怎样用比率分析企业的盈利能力？（关键词：效益、毛利率、净利润率、净资产收益率）</a></h2>
+<p>除了同型分析，还有一些其他的财务分析方法。比如说，比率分析、现金流分析等，它们都是财务分析当中非常重要的一部分。</p>
+<p>什么是比率分析？在原始的报表数据不能充分描述企业状况的时候，企业就需要在这些原始的财务数据之间做一些加减乘除的运算，计算所得的新数据即所谓的 “比率”。</p>
+<p>有哪些常用的比率？还是先从企业最关心的利润入手吧。</p>
+<p>从利润表上，这家成立刚满一年的公司可以清楚地看到自己的毛利润和净利润，分别是 1200 万元和 520 万元。一看到这个数字，企业的老总傻眼了，这到底算怎么回事儿呢？自己的公司到底算赚得多还是赚得少呢？要是吉姆・沃尔顿看到沃尔玛那张记着 500 万元净利润的财务报表，一定会怒不可遏；可要是住宅小区小卖部一年的净利润竟然达到了 500 万元，小老板一定乐疯了不可。那这家新公司的盈利能力到底怎么样呢？</p>
+<p><strong>在运用比率进行盈利能力分析的过程中，必须先把数据变成比率，比如将毛利润转化成毛利率，将净利润转化为净利润率。毛利率就是用毛利润除以收入所得到的比率，净利润率就是用净利润除以收入所得到的比率</strong>。因此，这家新公司的毛利率可以通过 1200 万元除以 4300 万元得到，即 28%；这家新公司的净利润率也可以用 520 万元除以 4300 万元得到，即 12%。</p>
+<p>毛利率（Gross Margin）：毛利与销售收入（或营业收入）的百分比，其中毛利是营业收入和与收入相对应的营业成本之间的差额。</p>
+<p>净利润率（Net Profit Margin）：又称销售净利率，是反映公司盈利能力的一项重要指标，是扣除所有成本、费用和企业所得税后的利润率。</p>
+<p><strong>一家企业的净利润率较高，说明在从营业收入到利润的转化过程中损耗较少，也就有更多的收入可以转化为盈利，那这家企业一定是一家效益不错的企业。因此，净利润率是一个与效益有关的概念。</strong></p>
+<p>那么，每卖出 100 元的产品，就能从中获得 12 元，这到底是多还是少呢？在 12% 的净利润率不变的前提下，虽然卖出 100 元产品的企业只能赚到 12 元，但出售产品的金额达到 100 亿元的企业可就能获得 12 亿元了。因此，要判断一家公司的盈利能力，必须首先知道这家公司一共能卖出价值多少钱的产品。</p>
+<p>我们都知道，企业无论从事怎样的经济活动，都可以被抽象为在周而复始地进行着从现金开始再到现金的循环：企业股东投入的资金，随着企业正常的运营，被转化为各种各样的资产形式；随着企业售出产品，企业最终又通过这些资产赚到了钱。</p>
+<p>在上述的循环中，每转一圈，企业就会卖出一批产品，获得一笔收入。那么在一年之内，企业的资产一共转了多少圈呢？<strong>由此，我们获得了一个新的比率，即周转率，确切地说是总资产的周转率。在同样的时间里，总资产的周转率越高，完成上述循环的次数越多，赚的钱也就越多。因此，总资产的周转率是一个与效率有关的概念。</strong></p>
+<p><strong>判断一家企业的盈利能力如何，不仅要立足于效益，更要立足于效率。如果满脑子只有毛利率、净利润率这样的效益因素显然是不够的，还必须牢记周转率这样的效率因素，这样才能对企业的利润有一个全面的考量。</strong></p>
+<p>或许，我们还可以用另一种方式来衡量企业的盈利能力：投入了多少，最终又获得了多少。因此，用净利润除以总资产，也便得到了一个新的比率 —— 总资产报酬率。它可以被拿来衡量投资所获得的回报：在总资产一定的前提下，总资产报酬率高，利润高；总资产报酬率低，利润低。</p>
+<p>即效率 × 效益 = 总资产报酬率，效率、效益和投资回报之间的关系一目了然。无论是效率还是效益发生改变，都将影响企业的投资回报。</p>
+<p>总资产报酬率（Return on Assets）：又称总资产利润率、总资产回报率、资产总额利润率，英文缩写 ROA，用以评价企业运用全部资产的总体获利能力。</p>
+<p>从资产负债表左边的概念来说，总资产报酬率反映企业整体的投资回报；从资产负债表右边的概念来说，由于总资产等于负债与股东权益的和，所以总资产报酬率是股东和债权人综合的投资回报。</p>
+<p>此外，用净利润除以股东权益，股东们就会对自己的投资回报了然于胸。净利润是股东投资所获得的回报，股东权益是股东自己的投资，二者相除得到的就是股东权益报酬率。但实际上，会计们并不把它称作股东权益报酬率，而把它叫作净资产报酬率。因为 “股东权益 = 总资产 - 负债”，而股东权益也被称作净资产，即净剩下来归股东所有的资产，可见把股东权益报酬率称为净资产报酬率一点也不奇怪。</p>
+<p>投资回报率（Return on Investment）：英文缩写 ROI，通过投资而应返回的价值，企业从一项投资性商业活动的投资中得到的经济回报。</p>
+<p>净资产收益率（Return on Equity）：又称净资产利润率，英文缩写 ROE，指利润额与平均股东权益的比值。该指标越高，说明给股东（所有者）带来的收益越高；该指标越低，说明企业股东（所有者）的获利能力越弱。该指标体现了自有资本获得净收益的能力。</p>
+<h2 id="一家公司的营运能力怎么样关键词效率周转率"><a class="header" href="#一家公司的营运能力怎么样关键词效率周转率">一家公司的营运能力怎么样？（关键词：效率、周转率）</a></h2>
+<p><strong>企业的投资回报决定于效益和效率两个方面，效益可以用净利润率和毛利率来表示，效率则可以通过总资产周转率表现。可是，资产有那么多种类型，又怎么会只有总资产周转率？</strong></p>
+<p>的确如此，我们其实可以算出每一项资产的周转率。一般来说，用收入除以某项资产就得到该资产的周转率。例如，用收入除以总资产，就得到了总资产周转率；用收入除以应收账款，就得到了应收账款的周转率；收入除以流动资产，就可以算出流动资产的周转率；收入除以固定资产，就得到了固定资产的周转率……</p>
+<p>看上去，一切都是那么顺理成章。可就在这个时候，偏偏就有 “人” 要跳出来唱反调。虽然用收入除以存货的方法计算存货周转率并非不可行，但现实中存在着一种更为常见的方法 —— 用成本除以存货。因为在被出售之后，存货就转化成了营业成本，所以人们更习惯用成本除以存货的方式来计算存货周转率。</p>
+<p>总资产周转率（Total Assets Turnover）：企业在一定时期营业收入同平均资产总额（可以用期初与期末资产总额之和除以 2 得到）的比率。总资产周转率是综合评价企业全部资产的经营质量和利用效率的重要指标。周转率越高，说明总资产周转越快，反映出销售能力越强。</p>
+<p>应收账款周转率（Accounts Receivable Turnover）：在一定时期内（通常为一年）应收账款转化为现金的平均次数。应收账款周转率是营业收入除以平均应收账款（可以用年初与年末应收账款之和除以 2 得到）的比值，也就是年度内应收账款转为现金的平均次数，它说明应收账款流动的速度。用时间表示的周转速度是应收账款周转天数，也叫平均应收账款回收期或平均收现期，表示企业从取得应收账款的权利到收回款项、转换为现金所需要的时间，等于 365 除以应收账款周转率。</p>
+<p>流动资产周转率（Current Assets Turnover）：营业收入与流动资产平均余额的比率，它反映的是全部流动资产的利用效率。流动资产周转率是分析流动资产周转情况的一个综合指标，流动资产周转得快，可以节约资金，提高资金的利用效率。</p>
+<p>固定资产周转率（Fixed Assets Turnover）：企业营业收入与固定资产平均净值的比率。它是反映企业固定资产周转情况，从而衡量固定资产利用效率的一项指标。该比率越高，表明固定资产利用效率越高，利用固定资产效果越好。</p>
+<p>存货周转率（Inventory Turnover）：企业一定时期营业成本（也可以用营业收入）与平均存货余额的比率。用于反映存货的周转速度，即存货的流动性及存货资金占用量是否合理，促使企业在保证生产经营连续性的同时，提高资金的使用效率，增强企业的短期偿债能力。</p>
+<p>当把这些资产的周转率计算出来之后，我们发现，它们其实相当有用。通过计算周转率，我们可以得知周转的周期。</p>
+<p>比如说，用 3100 万元营业成本除以 500 万元便获得了存货的周转率，为 6.2 次 / 年。这说明，存货在一年中要周转 6.2 次，平均每隔 58 天周转一次。也就是说，从采购原材料到卖出产品，这家企业需要 58 天的时间。</p>
+<p>又比如说，用 4300 万元营业收入除以 1300 万元应收账款，就获得了应收账款的周转率，即 3.3 次 / 年。既然一年周转了 3.3 次，应收账款周转一次的时间就大约是 4 个月，也就是 109 天。这就意味着，从企业卖出产品，再到收回所有货款，一共需要 109 天。</p>
+<p>再比如说，用 4300 万元的营业收入除以 3760 万元的流动资产，就可以算出流动资产的周转率，为 1.2 次 / 年。流动资产的周转率其实是由各项流动资产周转率加权平均决定的，按它们在总资产中所占比重来加权。</p>
+<p>用营业收入除以固定资产就得到了固定资产的周转率。当用 4300 万元营业收入除以 5700 万元固定资产之后，我们得出固定资产的周转率为 0.8，也就是说花费一年时间还无法周转一次。这其实是一种非常常见的现象。</p>
+<p>根据公式，总资产的周转率也很容易计算。用 4300 万元除以 9520 万元，就得到了总资产的不到 0.5 次一年的周转率。</p>
+<p>无论是营业收入还是营业成本，在计算周转率时都是作为分子，它们都是来自利润表的数字；而周转率的分母则是各个资产项目，是被记录在资产负债表上的项目。问题也就随之而来。</p>
+<p>小时候常常碰到这样的应用题，小红从 A 点到 B 点需要走 10 分钟，她一小时能走 3 公里，问 A 点离 B 点有多远。我们得先把速度单位从每小时多少公里换算成每分钟多少公里，才能进一步计算。</p>
+<p>同样的道理，资产负债表上的项目通通是时点数据，而利润表则表现了一段时期的数据，如果用时段数据直接除以时点数据，二者是不匹配的。</p>
+<p>怎么解决这个问题呢？会计们总算想到了一个好主意：用营业收入或者营业成本除以这项资产在一年当中真正的平均水平，一般用这项资产期初数额与期末数额之和除以 2 来计算这个平均水平。在本书的举例中，为简便起见，我们统一用各项资产的年末数额，而非各项资产的平均值，计算各项资产的周转率。例如，用全年的营业成本除以年末存货数额计算存货周转率，用全年的营业收入除以年末应收账款数额计算应收账款周转率。但在实际计算中，我们还是用期初与期末数额的平均值来计算更为准确。</p>
+<p>这就是周转率的计算方法，它可以很有效地衡量一家企业的营运能力。</p>
+<p>营运能力（Operating Capability）：企业的经营运行能力，即企业运用各项资产以赚取利润的能力。企业营运能力的财务分析比率为各种资产的周转率，如存货周转率、应收账款周转率、流动资产周转率和总资产周转率等，以及相对应的周转周期。</p>
+<h2 id="一家公司的短期偿债能力怎么样关键词流动比率速动比率"><a class="header" href="#一家公司的短期偿债能力怎么样关键词流动比率速动比率">一家公司的短期偿债能力怎么样？（关键词：流动比率、速动比率）</a></h2>
+<p>对一家公司来说，能赢利当然是好事，但是也别忘了，偿债能力也是衡量一家企业的关键指标。</p>
+<p>偿债能力（Solvency）：企业偿还到期债务的承受能力或保证程度，包括偿还短期债务和长期债务的能力。</p>
+<p>资产负债表把负债分为流动负债和非流动负债两种，前者是企业必须在一年之内偿还的负债，后者是偿还期限长于一年的负债。企业的偿债能力也被分为两种，一种是短期偿债能力，一种是长期偿债能力。</p>
+<p>短期偿债能力，就是指企业偿还那些流动负债的能力。流动负债包括什么呢？比如说，要付给供应商的应付款。要从哪里拿出这笔钱呢？现从银行贷一笔？“临阵磨枪，不快也光” 放在这里可不合适。那再建一个项目，等赚了钱再给供应商付款怎么样？这也好像来不及。要是手头有 “闲钱”，那只要把手头的 “闲钱” 给供应商即可，可如果手上没有钱怎么办呢？于是，最好的办法莫过于把自己的流动资产变现 —— 把产品卖掉，把别人欠我的钱收回来。</p>
+<p>这些产品都是企业的流动资产，如果一家企业所有的流动资产都可以在转眼之间变为现金，这些现金是否足够偿还它所欠下的债务？会计们对此的解答是：用流动资产除以流动负债便获得了流动比率，这个比值越高，说明企业的短期偿债能力越强。</p>
+<p>流动比率（Current Ratio）：企业流动资产与流动负债的比率，反映企业短期偿债能力。</p>
+<p>显然，这种做法过于理想，因为流动资产很可能不能马上全部变成现金，存货一时卖不掉、应收账款一时收不回来都是极有可能发生的事。而把存货变成现金又是其中最难的，因为要先将存货变成应收款，再将应收款收回，存货才真正变成了现金。为此，会计们选择了更谨慎的办法：用流动资产减去存货的差除以流动负债，就得到了速动比率，并用它来衡量企业的短期偿债能力。</p>
+<p>速动比率（Quick Ratio/Acid-test Ratio）：速动资产对流动负债的比率。它是衡量企业流动资产中可以立即变现用于偿还流动负债的能力的指标。速动资产中一般不包括流动资产中的存货、一年内到期的非流动资产及其他流动资产。</p>
+<p>要看这家新公司的短期偿债能力怎么样，就来算一算它的流动比率和速动比率吧。</p>
+<p>这家公司的流动资产为 3670 万元，存货为 500 万元，流动负债为 5900 万元，由此得出它的流动比率为 0.6，速动比率为 0.5。这到底是好还是不好呢？恐怕这家公司的老板又要拍脑门了。</p>
+<p>如果一家企业的流动比率恰好为 1，这是好还是不好呢？这似乎是说，这家企业的流动资产恰好能够偿还所有的流动负债，偿债能力没有问题。但首先，企业的流动资产在瞬间全都变成现金往往是一件不可能发生的事，产品没有被很快卖掉，又或者应收账款没有及时收回，都有可能造成流动资产无法变现。其次，如果一家企业把自己所有的流动资产都拿去还债了，手头既没有原材料也没有现金，它要怎样进行接下去所有的生产经营活动呢？企业要怎样运转呢？因此，流动资产实际上扮演了两个角色：一个角色是为企业偿还流动负债做准备，另一个角色是为企业的日常运营提供流动资金。当一家公司的流动比率为 1，那么它的营运资金一定是不足的。</p>
+<p>既然流动比率为 1 根本没戏，那它等于多少才合适呢？有人说，既然流动资产同时 “兼着两份工”，那流动比率为 2 是否合适呢？刚好可以一份还债、一份运营。这种说法到底对还是不对呢？</p>
+<p>让我们看看图 1。图 1 的纵坐标表示企业的流动比率，两条折线分别代表了健康公司的流动比率和已破产公司的流动比率，横坐标则表示企业在破产之前的 “一段不堪回首的时光”。观察一下这张图，我们发现流动比率为 2 显然也不合适，这些已破产公司的流动比率在它们破产之前的那一年恰巧达到了 2。因此，如果一家企业的老板看到自己公司的流动比率为 2，就误以为自己的公司很安全，那后果无疑相当严重。</p>
+<p>＞＞＞图 1 美国健康企业与破产企业流动比率的对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img/20240814204359.png" alt="" /></p>
+<p>再进一步研究一下这张图，我们发现：健康公司的流动比率大多在 3 到 4 之间。这个时候，可能很多人都默默记住了 3 到 4 这个 “标准” 范围，然后赶紧看看自己公司的流动比率是不是在这个 “标准” 范围内。如果你是一个美国公司的老板，这样做当然没问题，因为图 1 就是用美国公司的数据计算出来的；可如果你是一家中国公司的老板，那你搞不好要晕倒，因为你很可能会发现自己公司的流动比率比图 1 中那些破产公司的还要低，难道是自己要破产了吗？</p>
+<p>别着急，大多数中国企业的流动比率都在 1 到 2 之间。这是怎么回事呢？为什么在流动比率等于 2 的情况下，美国公司纷纷破产，而中国公司却活得好好的？</p>
+<p>奥妙就在于短期借款。在中国，企业往往不需要靠变现流动资产来偿还短期借款，而是用新的借款来偿还，也就是借新债还旧债，借款本身实现了自我循环。在这样的模式之下，除非它所在的整个行业都完蛋，银行突然停止贷款，否则它还是能活得好好的。说穿了，短期借款其实变成了长期借款的一种替代方式，需要通过变现流动资产来偿还的负债其实不包括短期借款。</p>
+<p>因此，虽然用所有流动资产除以所有流动负债得出的流动比率可能很低，但用流动资产除以扣除了短期借款的流动负债，得出的流动比率就没有那么低了。比如说，当扣除了这家公司多达 5100 万元的短期借款之后，实际上它只有 800 万元的流动负债。用流动资产 3670 万元除以流动负债 800 万元，就得到了一个 4.6 的流动比率值。显然，这个数值一点也不低。</p>
+<h2 id="一家公司的长期偿债能力怎么样关键词息税前收益财务杠杆"><a class="header" href="#一家公司的长期偿债能力怎么样关键词息税前收益财务杠杆">一家公司的长期偿债能力怎么样？（关键词：息税前收益、财务杠杆）</a></h2>
+<p>既然用流动资产除以流动负债所得到的流动比率来衡量企业的短期偿债能力，那么，如果以长期资产除以长期负债的所得判断企业的长期偿债能力是不是就 OK 了呢？看起来很对，其实大错特错。你即便把 N 本会计参考书翻个底朝天，也不可能找到这项在表面上能衡量企业长期偿债能力的比率。</p>
+<p>有人一定会觉得奇怪，刚才不是还用类似的方法判断短期偿债能力吗，怎么现在用同样的方法判断长期偿债能力就不行了呢？</p>
+<p>这是因为，当我们用流动资产除以流动负债的结果来衡量企业的短期偿债能力时，我们假设企业是用流动资产变现得到的现金去偿还流动负债的，这个假设也符合企业的实际情况。可如果用类似的方法衡量企业的长期偿债能力，言外之意就是假设企业用长期资产变现得到的现金偿还长期负债。什么是长期资产的变现？只能是把厂房、设备都卖了。如果一家公司连自己的厂房、设备、办公室和品牌全都变卖了，那它一定不是想还债，而是想关门。因此，别说是聪明的会计，而是世界上所有的会计都不会用这样的方式衡量企业的长期偿债能力。</p>
+<p>那到底如何衡量长期负债的偿债能力呢？负债的偿还，包含本金和利息两个维度；偿债，也包含偿还本金和偿还利息两个维度。想要衡量企业的长期偿债能力，就要从这两个角度入手。</p>
+<p>企业用什么偿还利息呢？有人说，当然是用自己赚的钱。企业自己赚的钱，也就是企业的净利润。可是用净利润除以利息，又将得到一个根本不存在的比率。因为净利润本身就是一个扣除了利息的结果，用净利润除以利息，就是计算在还完利息之后，企业赚的钱还可以再还几次利息。重复偿还利息，银行倒是赚翻了，企业自己却只能关门大吉，这显然是大错特错的。</p>
+<p>因此，需要用企业偿还利息之前所赚到的钱偿还利息。企业偿还利息前赚到的钱怎么计算呢？很简单，用净利润加上利息就可以了。可问题又来了：净利润不仅扣除了利息，而且扣除了所得税，可如果</p>
+<p>扣除了利息之后企业已经不赚钱了，它是不用再缴税的。因此，企业在偿还利息之前的盈利实际上也包含了它紧接着要缴纳的那部分所得税，怎么处理所得税的问题呢？这就涉及了一个新的概念，叫 “息税前收益”。在净利润的基础上，加上所得税和利息，就得到了所谓的息税前收益，这就是偿还利息和所得税之前企业赚到的钱，这笔钱是可以用来偿还利息的。</p>
+<p>息税前收益（Earnings before Interest and Tax）：扣除利息、所得税之前的利润，英文简称 EBIT。</p>
+<p>用息税前收益除以利息，就得到了利息收入倍数。我们一般用这个比率来衡量企业在扣除利息和所得税之前的盈利足够它偿还几次利息。显然，利息收入倍数越高，企业偿还利息的能力就越强。</p>
+<p>利息收入倍数（Times Interest Earned/Interest Protection Multiples）：也称利息保障倍数，是指企业息税前利润与利息费用之比；又称已获利息倍数，用以衡量偿付借款利息的能力，它是衡量企业支付负债利息能力的指标。</p>
+<p>这家新成立的公司这方面情况怎么样呢？我们把它 520 万元的净利润、100 万元的所得税额和 130 万元的财务费用相加，就得到了它的息税前收益，即 750 万元。再用 750 万元除以 130 万元，就得到了这家公司的利息收入倍数，为 5.8 倍。也就是说，这个企业赚到的钱够它还 5.8 次利息，显然，它偿还利息的能力是 “杠杠的”。</p>
+<p>另外，要如何衡量企业偿还长期负债的本金的能力呢？其实，偿还长期负债的本金是一个漫长的过程，企业一般不会准备一笔专门偿债的资金，衡量企业偿还长期负债本金能力的方式也由此变得扑朔迷离。</p>
+<p>有不少人会选择利用资产负债率来衡量，这个方式虽然粗糙，但却大体靠谱。</p>
+<p>什么是资产负债率？就是用总负债除以总资产。说它粗糙，是因为它涉及包含长期负债和短期负债在内的所有负债，用它来衡量长期负债显然 “专业性” 不足；说它靠谱，是因为它意味着借钱越多越无法偿还，从这一点看来，倒是直观得不得了。</p>
+<p>资产负债率也叫财务杠杆。普通的杠杆能够放大力，而财务杠杆则能放大企业的资金：如果这家公司只有 100 万元，那它只能用这 100 万元赚钱；如果这家企业有 100 万元，又借了 100 万元，那它就能用 200 万元去赚钱。对企业的股东来说，最好的状态当然是空手套白狼，纯用别人的钱发家致富；可债权人不乐意了，没有人是慈善家。于是，财务杠杆最终是一个双方博弈的结果，既不会太高，也不会太低。</p>
+<p>资产负债率（Liability/Asset Ratio）：又称财务杠杆（Financial Leverage），是企业负债总额占企业资产总额的百分比。这个指标反映了在企业的全部资产中由债权人提供的资产所占比重的大小，反映了债权人向企业提供信贷资金的风险程度，也反映了企业举债经营的能力。</p>
+<p>对上市公司的分析表明，中国上市公司的平均财务杠杆水平维持在 45% 左右。当然，一些特殊的企业可能会拥有一个比较高或者比较低的财务杠杆水平。比如说，重资产企业需要钱，同时也拥有大量资产可以用来抵押借款，所以具有很强的借债能力。资产负债率高达 80% 的航空公司比比皆是。又比如说，流动性强的企业和轻资产的新型企业，由于资金宽裕且不需要太多资金，资产负债率并不高。</p>
+<p>这家新公司的总资产为 9520 万元，总负债为 5900 万元，故其资产负债率为 62%。</p>
+<p>看上去，这家公司已经对自己的长期偿债能力有一个大体的了解了，但你可能已经发现了问题 —— 这家公司压根没有长期负债，又怎样去衡量它的长期偿债能力呢？</p>
+<p>其实，无论是利息收入倍数还是资产负债率都不只被用来衡量企业的长期偿债能力，它们其实是企业整体偿债能力的衡量指标。</p>
+<h2 id="附财务分析方法汇总"><a class="header" href="#附财务分析方法汇总">附：财务分析方法汇总</a></h2>
+<p>一、同型分析</p>
+<p>资产负债表的同型分析为资产负债表的每个项目除以总资产，利润表的同型分析为利润表的每个项目除以营业收入。</p>
+<p>二、比率分析</p>
+<ol>
+<li>
+<p>盈利能力</p>
+</li>
+<li>
+<p>营运能力（为了简便起见，本书的举例数据中均采用期末资产数额计算周转率，但实际计算当以期初期末的平均值计算更为准确）</p>
+</li>
+<li>
+<p>偿债能力</p>
+</li>
+</ol>
+<p>（通常用财务费用代替利息费用）</p>
+<ol start="4">
+<li>投资回报（本书的举例数据均采用期末总资产或期末股东权益计算）</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="解剖现金流量表.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="找出影响财务数据的因素.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="解剖现金流量表.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="找出影响财务数据的因素.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
