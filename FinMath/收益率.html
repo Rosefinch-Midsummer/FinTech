@@ -24,17 +24,18 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc.js"></script>
@@ -44,8 +45,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,7 +60,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -72,8 +74,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -109,6 +111,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -153,7 +156,134 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="收益率"><a class="header" href="#收益率">收益率</a></h1>
+<h2 id="收益率"><a class="header" href="#收益率">收益率</a></h2>
+<ul>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87">学习目标</a></li>
+<li><a href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">思维导图</a></li>
+<li><a href="#41-%E5%87%80%E7%8E%B0%E5%80%BC%E4%B8%8E%E6%94%B6%E7%9B%8A%E7%8E%87">4.1 净现值与收益率</a></li>
+<li><a href="#42-%E5%87%80%E7%8E%B0%E5%80%BC%E4%B8%8E%E6%94%B6%E7%9B%8A%E7%8E%87%E7%9A%84%E8%AE%A1%E7%AE%97">4.2 净现值与收益率的计算</a></li>
+<li><a href="#43-%E6%B1%82%E8%A7%A3%E6%94%B6%E7%9B%8A%E7%8E%87%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5">4.3 求解收益率可能出现的三种情况</a></li>
+<li><a href="#44-%E6%94%B6%E7%9B%8A%E7%8E%87%E5%94%AF%E4%B8%80%E6%80%A7%E7%9A%84%E6%9D%A1%E4%BB%B6">4.4 收益率唯一性的条件</a></li>
+<li><a href="#45-%E5%86%8D%E6%8A%95%E8%B5%84">4.5 再投资</a></li>
+<li><a href="#46-%E4%BE%8B%E9%A2%98%E5%86%8D%E6%8A%95%E8%B5%84">4.6 例题：再投资</a></li>
+<li><a href="#47-%E4%BF%AE%E6%AD%A3%E6%94%B6%E7%9B%8A%E7%8E%87">4.7 修正收益率</a></li>
+<li><a href="#48-%E5%B8%81%E5%80%BC%E5%8A%A0%E6%9D%83%E6%94%B6%E7%9B%8A%E7%8E%87">4.8 币值加权收益率</a></li>
+<li><a href="#49-%E6%97%B6%E9%97%B4%E5%8A%A0%E6%9D%83%E6%94%B6%E7%9B%8A%E7%8E%87">4.9 时间加权收益率</a></li>
+<li><a href="#410-%E4%BE%8B%E9%A2%98%E6%94%B6%E7%9B%8A%E7%8E%87%E7%9A%84%E8%AE%A1%E7%AE%97">4.10 例题：收益率的计算</a></li>
+<li><a href="#411-%E5%9F%BA%E9%87%91%E7%9A%84%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D">4.11 基金的收益分配</a></li>
+</ul>
+<h3 id="学习目标"><a class="header" href="#学习目标">学习目标</a></h3>
+<p>理解收益率的定义、计算方法和唯一性判别准则；掌握在出现再投资的情况下收益率的计算方法；可以计算基金的时间加权收益率和币值加权收益率。</p>
+<h3 id="思维导图"><a class="header" href="#思维导图">思维导图</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116112001.png" alt="" /></p>
+<p><a href="https://rosefinch-midsummer.github.io/book/file/FinMath/%E6%94%B6%E7%9B%8A%E7%8E%87.pdf">收益率PPT</a></p>
+<h3 id="41-净现值与收益率"><a class="header" href="#41-净现值与收益率">4.1 净现值与收益率</a></h3>
+<p>本视频介绍了收益率的概念和计算方法。收益率是资金流入的现值与资金流出的现值相等时的利率，也可以定义为使净现值等于零的利率。净现值是将所有现金流折现到时间零点后的现值之和，表示投资项目的收益大小。收益率和净现值的定义虽然形式不同，但本质上是一致的。通过一个例子，我们可以更好地理解收益率的定义和计算方法。</p>
+<p>净现值NPV=资金流入的现值 - 资金流出的现值</p>
+<p>净现值越大，表示收益越高</p>
+<p>（内部）收益率IRR：使得资金流入的现值和资金流出的现值相等时的利率。</p>
+<p>收益率实质上是使得净现值为零的利率：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm" style="margin-right:0.01389em;">NPV</span></span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2332em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9335em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></p>
+<p>例（收益率的定义）：时间零点投资100元，年末收回110元，计算收益率。</p>
+<p>解：三种方法</p>
+<p>（1）价值方程：100(1+i)=110，故收益率i=10%</p>
+<p>（2）资金流入的现值=110/(1+i)，资金流出的现值=100</p>
+<p>令上述两者相等：110/(1+i)=100，也得到前述价值方程。</p>
+<p>（3） 净现值= 110/(1+i)-100</p>
+<p>令净现值=0，也得到前述价值方程。</p>
+<h3 id="42-净现值与收益率的计算"><a class="header" href="#42-净现值与收益率的计算">4.2 净现值与收益率的计算</a></h3>
+<p>这个视频介绍了净现值和收益率的计算方法。以一个投资项目为例，假设期初投资20万元，每年末可以获得5万元的收入。在5%和10%的利率水平下，计算净现值和收益率。净现值是资金流入和资金流出的差值，它的大小与利率有关。如果使用5%的利率，净现值大于0，表示赚钱了；如果使用10%的利率，净现值小于0，表示亏损。收益率是使净现值等于零的利率，通过解方程可以得到。在这个例子中，收益率为7.93%。计算净现值和收益率可以使用Excel的NPV和IRR函数。</p>
+<h3 id="43-求解收益率可能出现的三种情况"><a class="header" href="#43-求解收益率可能出现的三种情况">4.3 求解收益率可能出现的三种情况</a></h3>
+<p>在这个教学视频中，我们学习了求解收益率可能出现的三种情况。收益率是使得资金流入的现值和资金流出的现值相等时的利率。我们可以通过计算现金流的净现值来求解收益率。然而，由于净现值方程往往是关于利率的高次方程，所以可能出现三种情况：无解、多个解和唯一解。无解意味着收益率不存在，而多个解意味着存在多个收益率。我们通过净现值相等的条件来解决多个解的问题。通过一个简单的例子，我们可以看到收益率可能不存在的情况。另外，我们还讨论了多个解可能导致的问题。</p>
+<h3 id="44-收益率唯一性的条件"><a class="header" href="#44-收益率唯一性的条件">4.4 收益率唯一性的条件</a></h3>
+<p>收益率可以定义为使得资金流入的现值和资金流出的现值相等时的利率，也可以定义为使得净现值等于零时的利率。计算收益率需要解关于利率的高次方程，可能存在无解、多重解和唯一解三种情况。判断收益率是否唯一有两个准则：净流入只改变过一次符号，或者净流入的累积值前面一直是负的，到最后一年才变为0。如果满足这两个准则之一，就可以得到一个唯一的收益率。如果不满足第一个准则，可以考虑是否满足第二个准则。通过计算净流入的累积值，可以判断收益率是否唯一。</p>
+<p>收益率唯一性的条件</p>
+<p>满足下述两个准则之一即可：</p>
+<p>准则1：资金净流入只改变过一次符号（正负号）。</p>
+<p>准则2：用收益率计算资金净流入的累积值，始终为负，最后一年末等于零。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115215101.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115215405.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115215648.png" alt="" /></p>
+<h3 id="45-再投资"><a class="header" href="#45-再投资">4.5 再投资</a></h3>
+<p>再投资：前期投资的收入按新的利率再次进行投资</p>
+<p>在这个教学视频中，我们学习了再投资的概念和如何计算投资收益率。通过一个简单的例子，我们看到了如果两个投资项目在10年期间产生相同的收益，那么第一个项目在后5年的投资收益率应该达到多少。我们还学习了如何计算投资者在一段时间内的总平均收益率，以及如何解决投资收益率在不同时间段变化的情况。最后，我们给出了两个练习题，供大家练习和巩固所学知识。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115220829.png" alt="" />
+<img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115220859.png" alt="" /></p>
+<p>练习：投资者在时间零点存入12，在第10年末存入12，年利率为i。利息每年末支付一次，并按0.75i的利率再投资。在第20年末，利息再投资形成的累积值为64。计算i。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115221135.png" alt="" /></p>
+<p>例：一笔资金按年利率10%投资，刚好可以在未来20年的每年末领取1元。第一年的收益率为10%，投资者在年末领取了1元。在第2年，收益率为12%。如果收益率从第3年开始回到了原来的水平10%。计算在第2年末到第20年末，投资者可以领取的等额收益是多少？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115221801.png" alt="" /></p>
+<p>练习：一笔资金按年利率10%投资，刚好可以在未来20年的每年末领取1元。在第一年，收益率为10%，投资者在年末领取了1元。假设从第2年开始，收益率为12%。计算在第2年末到第20年末投资者可以领取的等额收益是多少？</p>
+<p>第一年末的价值：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8834em;vertical-align:-0.4528em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.7222em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord overline mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8894em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight"><span class="mord mtight">19</span></span></span><span style="top:-3.7914em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line mtight" style="border-bottom-width:0.049em;"></span></span></span></span></span></span><span class="mord mtight">∣12%</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4528em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.4528em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.7222em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord overline mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8894em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight"><span class="mord mtight">20</span></span></span><span style="top:-3.7914em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line mtight" style="border-bottom-width:0.049em;"></span></span></span></span></span></span><span class="mord mtight">∣10%</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4528em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">10%</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8834em;vertical-align:-0.4528em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.7222em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord overline mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8894em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight"><span class="mord mtight">19</span></span></span><span style="top:-3.7914em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line mtight" style="border-bottom-width:0.049em;"></span></span></span></span></span></span><span class="mord mtight">∣10%</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4528em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>左边：将来法</p>
+<p>中间：过去法</p>
+<h3 id="46-例题再投资"><a class="header" href="#46-例题再投资">4.6 例题：再投资</a></h3>
+<p>这个视频讲解了再投资的概念和计算方法。投资者在时间零点在账户A投资1万元，账户A的年收益率为10%，每年产生1000元的利息收入。这些利息收入全部投资在账户B，账户B的年收益率也是10%。账户B产生的收益又投资到账户C，账户C的年收益率还是10%。以此类推，直到账户F。在第五年末，账户A的本金余额是1万元，账户B是5000元，账户C是1000元，账户D是100元，账户E是5元，账户F是1元。这些账户的累积值加在一起是16105.1元。根据这个结果，投资者在这5年的收益率是10%。另外，视频还给出了一个例题，投资者在账户A投资2000元，账户A的收益率是5%，账户B的收益率是10%，账户C的收益率是7%。在第五年末，投资者的总价值是2500元，根据这个结果可以计算出投资者在这5年的平均收益率为5.53%。</p>
+<p>练习：在t=0，投资者在账户A中投资10000，每年赚取10%的收益率。</p>
+<p>账户A每年产生的利息收入投资于账户B，账户B的年收益率为10%；
+帐户B每年产生的利息收入投资于账户C，账户C的年收益率为10%；
+帐户C每年产生的利息收入投资于账户D，账户D的年收益率为10%;
+帐户D每年产生的利息收入投资于账户E，账户E的年收益率为10%；
+帐户E每年产生的利息收入投资于账户F，账户F的年收益率为10%；</p>
+<p>计算t=5时每个账户的累积值，以及投资者在这5年期间的年收益率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115222938.png" alt="" /></p>
+<p>练习：在t=0，投资者在账户A中投资2000，每年赚取5%的收益率。账户A每年产生的利息收入投资于账户B，账户B的年收益率为10%。帐户B每年产生的利息收入投资于账户C，账户C的年收益率为7%。</p>
+<p>计算t=5时，整个投资的累积值，以及这5年期间的年收益率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250115223236.png" alt="" /></p>
+<h3 id="47-修正收益率"><a class="header" href="#47-修正收益率">4.7 修正收益率</a></h3>
+<p>收益率定义为使得资金流入的现值和资金流出的现值相等时的利率，也可以定义为使得净现值等于零时的利率。求解收益率的方程往往是一个高次方程，可能无解或存在多重解。如果收益率不存在或存在多个收益率，可以计算修正收益率。计算修正收益率需要筹资利率和再投资利率两个辅助信息。筹资利率用于计算资金流出的现值，再投资利率用于计算资金流入的累积值。通过解方程可以得到修正收益率。计算修正收益率可以使用Excel函数MIRR。</p>
+<p>资金流出（成本）：用筹资利率计算现值</p>
+<p>资金流入（收益）：用再投资利率计算累积值</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">流出的现值</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0436em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7936em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">流入的累积值</span></span></span></span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116092626.png" alt="" /></p>
+<p>具体命令为<code>=MIRR(A1:C1,8%,6%)</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116093035.png" alt="" /></p>
+<h3 id="48-币值加权收益率"><a class="header" href="#48-币值加权收益率">4.8 币值加权收益率</a></h3>
+<p>币值加权收益率是用于度量投资者个人收益水平的重要指标。币值加权收益率受到每个个人投资者本金增减变化的时间和金额的影响。而基金管理人的业绩则需要剔除本金增减变化的影响，使用时间加权收益率来度量。币值加权收益率的计算需要求解一个关于收益率的高次方程，为了简化计算，可以使用单利来近似复利。币值加权收益率的计算公式为利息收入除以平均每天的资金占用额。通过一个例子的计算，可以看到近似值和精确值非常接近，因此在实际应用中通常使用近似公式来计算币值加权收益率。</p>
+<p>币值加权收益率(dollar-weighted yield rate)：度量投资者个人的收益水平</p>
+<p>币值加权收益率</p>
+<p>假设：年初本金为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 在时刻  <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> 的新增投资为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">ι</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 收益率为 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>,在年末累积值为
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.3em;vertical-align:-1.25em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.9em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.188em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>注：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>增加投资；<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>减少投资。</p>
+<p>用 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示年末的累积值，则有</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0497em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1308em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 由此求得收益率 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116094246.png" alt="" /></p>
+<p>例：年初存入100万，t=0.5时存入20万，t=0.8时取出50万。</p>
+<p>(1）计算日均资金占用额 (平均本金余额)</p>
+<p>(2）如果年末账户余额为80万，账户的币值加权收益率是多少？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116094801.png" alt="" /></p>
+<p>例：在年初存入1000，在4个月末存入1000，在6月和8月末分别取出200和500。在年末时，基金余额为1500。计算基金的币值加权收益率。</p>
+<p>利息收入=200，日均资金占用额=1400，基金的币值加权收益率=14.29%</p>
+<h3 id="49-时间加权收益率"><a class="header" href="#49-时间加权收益率">4.9 时间加权收益率</a></h3>
+<p>本视频介绍了基金的两种收益率计算方法：币值加权收益率和时间加权收益率。币值加权收益率用于衡量投资者个人的收益水平，受本金增减变化的影响；而时间加权收益率用于衡量基金经理人的管理业绩，剔除了本金增减变化的影响。时间加权收益率的计算方法是将一年划分成若干个时间区间，在每个时间区间内计算收益率，然后累积得到全年的收益率。通过一个例子，说明了币值加权收益率和时间加权收益率的差异。最后，还介绍了如何计算时间加权收益率和币值加权收益率的具体步骤。</p>
+<p>时间加权收益率(time-weighted yield rate)：度量基金经理人的业绩</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116095920.png" alt="" /></p>
+<p>例：1月1日，账户余额为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">100000</span><span class="mord cjk_fallback">，在</span><span class="mord">5</span><span class="mord cjk_fallback">月</span><span class="mord">1</span><span class="mord cjk_fallback">日，账户余额增长为</span></span></span></span>112000，同时增加投资<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">30000</span><span class="mord cjk_fallback">。在</span><span class="mord">11</span><span class="mord cjk_fallback">月</span><span class="mord">1</span><span class="mord cjk_fallback">日，账户余额为</span></span></span></span>125000，同时减少本金<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">42000</span><span class="mord cjk_fallback">。在次年</span><span class="mord">1</span><span class="mord cjk_fallback">月</span><span class="mord">1</span><span class="mord cjk_fallback">日，账户余额为</span></span></span></span>100000。计算币值加权收益率和时间加权收益率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116103304.png" alt="" /></p>
+<p>例：2019年1月1日在基金中存入1000，在7月1日存入资金C。在2020年1月1 日，基金余额为2000。基金的时间加权收益率和币值加权收益率分别为10% 和9%。计算基金在前6个月的年有效利率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116103900.png" alt="" /></p>
+<h3 id="410-例题收益率的计算"><a class="header" href="#410-例题收益率的计算">4.10 例题：收益率的计算</a></h3>
+<p>这个例子介绍了如何计算年收益率。通过给出的利息力函数，可以得到累积函数a(t)，表示在任意时间t的累积价值。根据现金流，可以计算出第二年末和2.5年末的累积价值，进而得到年收益率i。另外，通过一个基金A和基金B的例子，展示了币值加权收益率和时间加权收益率的计算方法，并通过方程求解得到i的值。最终得出基金A的币值加权收益率为15%。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116104602.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116104624.png" alt="" /></p>
+<h3 id="411-基金的收益分配"><a class="header" href="#411-基金的收益分配">4.11 基金的收益分配</a></h3>
+<p>基金的收益分配有两种方法：投资组合方法和投资年度方法。投资组合方法是对所有投资采用一个平均的收益率进行分配，适用于基金收益率相对稳定的情况。投资年度方法则根据投资发生的具体时间进行分配，对于新的投资采用较高的利率，对于老的投资采用较低的利率，更公平且有利于吸引新的投资者。在投资年度方法中，涉及投资年度利率和组合利率，根据投资时间的不同使用不同的利率进行分配。通过一个例子计算，可以得到投资年度利率为7.75%。</p>
+<p>基金包括不同时期的投资。如何把基金的收益分配给不同时期的投资？</p>
+<p>分配方法：</p>
+<ul>
+<li>投资组合法</li>
+<li>投资年度法</li>
+</ul>
+<p>投资组合法</p>
+<p>方法：对所有投资都按照平均收益率进行分配。适用情况：收益率水平保持稳定。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116105704.png" alt="" /></p>
+<p>投资组合法的问题：当各个年度的收益率不同时，组合法可能不公平。</p>
+<p>2019年发生的投资，收益率8%；2020年发生的投资，收益率10%；平均9%。</p>
+<p>如果对2020年的新投资按9%分配收益，不利于吸引新投资。如何解决？投资年度法。</p>
+<p>投资年度法</p>
+<p>发生在最近几年（如近三年）的投资：考虑投资发生的年度，即按投资年度利率分配收益。</p>
+<p>发生在以前年度（如三年以前）的投资：不考虑投资发生的年度，都按组合利率(平均利率)分配收益</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116110725.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost04/img20250116111925.png" alt="" /></p>
 
                     </main>
 
